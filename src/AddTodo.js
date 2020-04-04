@@ -1,14 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {View, StyleSheet, TextInput, Button} from 'react-native'
 
 export const AddTodo = props => {
+    const [value, setValue] = useState('')
     const pressHandler = () => {
         props.onSubmit('Test todo')
     }
-
     return (
         <View style={styles.block}>
-            <TextInput style={styles.input}/>
+            <TextInput
+                style={styles.input}
+                onChangeText={text => setValue(text)}
+                value={value}
+                placeholder='Введите название дела...'
+            />
             <Button title='Добавить' onPress={pressHandler}/>
         </View>
     )

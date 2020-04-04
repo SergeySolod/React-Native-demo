@@ -1,10 +1,15 @@
 import React, {useState} from 'react'
-import {View, StyleSheet, TextInput, Button} from 'react-native'
+import {View, StyleSheet, TextInput, Button, Alert} from 'react-native'
 
 export const AddTodo = props => {
     const [value, setValue] = useState('')
     const pressHandler = () => {
-        props.onSubmit('Test todo')
+        if (value.trim()) {
+            props.onSubmit(value)
+            setValue('')
+        } else {
+        Alert.alert('Название дела не может быть пустым')
+        }
     }
     return (
         <View style={styles.block}>

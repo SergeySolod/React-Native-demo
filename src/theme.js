@@ -1,4 +1,0 @@
-export const THEME = {
-  DANGER_COLOR: '#e53935',
-  PADDING_HORIZONTAL: 30
-}
